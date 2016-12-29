@@ -1,0 +1,172 @@
+ @import url('https://fonts.googleapis.com/css?family=Raleway');
+ @import url('https://fonts.googleapis.com/css?family=Jura');
+
+ * {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+ }
+
+body { 
+    font-family: 'Raleway', 'Arial', sans-serif; 
+}
+
+header {
+    background-color: #123;
+    height: 6em;
+    padding: 0 2%;
+    width: 100%; 
+}
+
+header img {
+    float: left;
+    margin: 1% 1% 5% 5%;
+    width: 5%;
+}
+
+.footer {
+    background-color: lightslategrey;
+    bottom: 0;
+    font-size: .8em;
+    text-align: left;
+    padding: 3%;
+    position: relative;
+    width: 100%;
+}
+
+.navbar * {    
+    color: ghostwhite;
+    float: left;
+    font-size: 1.3em;
+    margin: 2%;
+    padding: .5%;
+    text-decoration: none;
+    text-align: center;
+    width: 15%;
+}
+
+.home {
+    margin: 5%;
+    text-align: center;
+    width: 90%;
+}
+
+.chat-icon {
+    width: 20%;
+    margin: 0 40%;
+}
+
+.big-t {
+    border-radius: .1em;
+    background-color: lightgrey;
+    font-size: 5em;
+    margin:2%;
+    padding: 4%;
+}
+
+.little-t {
+    font-size: 2em;
+    font-weight: lighter;
+    margin:2%;
+}
+
+.tech {
+    margin: 5%;
+    width: 90%;
+}
+
+.tech img {
+    width: 20%;
+    margin: 1% 5%;
+}
+
+.let-chat {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: .5px solid lightslategrey;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1em;
+  margin: 2%;
+  padding: 2% 5% 2% 5%;
+}
+
+.chat {
+    width: 90%;
+    margin: 5%;
+}
+
+.message-box {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: .5px solid lightslategrey;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.3em;
+  margin: 1% 0 1% 7%;
+  padding: 2% 1% 2% 1%;
+  width: 70%;
+}
+
+.send {
+  width: 15%;
+}
+
+#chat-box {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: .5px solid lightslategrey;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  overflow: scroll;
+}
+
+.about{
+    background-image: url(./img/mountain.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: whitesmoke;
+    font-family: 'Jura', sans-serif;
+    font-size: 2em;
+    padding: 10%;
+    opacity: 0.8;
+    text-align: center;
+}
+
+.contact {
+    margin: 5% 20%;
+    clear: both;
+    width: 80%;
+}
+
+.contact li{
+    list-style: none;
+    float: left;
+    width: 20%;
+}
+
+.contact li img {
+    width: 50%;
+    transition: 1s;
+}
+
+.contact li img:hover {
+    width: 60%;
+    
+}
+
+.about h3 {
+    clear: both;
+    padding-top: 5%;
+}
+
+.about h1 {
+    transition: .3s;
+}
+
+.about h1:hover {
+    border-bottom: 5px solid whitesmoke;
+}
+
+.msg {
+    margin: .5em;
+}
+
