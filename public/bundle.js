@@ -90,6 +90,8 @@
 
 	'use strict';
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -118,18 +120,90 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var user = { name: '', active: false, getName: function getName() {
+	        return undefined.name;
+	    }, setName: function setName(n) {
+	        undefined.name = n;
+	    } };
+
+	var Login = function (_Component) {
+	    _inherits(Login, _Component);
+
+	    function Login() {
+	        _classCallCheck(this, Login);
+
+	        return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).apply(this, arguments));
+	    }
+
+	    _createClass(Login, [{
+	        key: 'handleLogin',
+	        value: function handleLogin() {
+	            user.setName(document.getElementById('username').value);
+	            window.location = '/realchat';
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'login' },
+	                _react2.default.createElement(
+	                    'h2',
+	                    null,
+	                    'Insert your user name here:'
+	                ),
+	                _react2.default.createElement('input', { type: 'text', id: 'username', placeholder: 'Type here', className: 'message-box' }),
+	                _react2.default.createElement(
+	                    'button',
+	                    { className: 'let-chat send', onClick: this.handleLogin.bind(this) },
+	                    'Go'
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Login;
+	}(_react.Component);
+
+	var realChat = function (_Component2) {
+	    _inherits(realChat, _Component2);
+
+	    function realChat() {
+	        _classCallCheck(this, realChat);
+
+	        return _possibleConstructorReturn(this, (realChat.__proto__ || Object.getPrototypeOf(realChat)).apply(this, arguments));
+	    }
+
+	    _createClass(realChat, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(_Chat2.default, { usr: userName });
+	        }
+	    }]);
+
+	    return realChat;
+	}(_react.Component);
+
 	module.exports = _react2.default.createElement(
-	  _reactRouter.Router,
-	  { history: _reactRouter.browserHistory },
-	  _react2.default.createElement(
-	    _reactRouter.Route,
-	    { path: '/', component: _Layout2.default },
-	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _HomePage2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: 'home', component: _HomePage2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: 'chat', component: _Chat2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: 'about', component: _About2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: '*', component: _2.default })
-	  )
+	    _reactRouter.Router,
+	    { history: _reactRouter.browserHistory },
+	    _react2.default.createElement(
+	        _reactRouter.Route,
+	        { path: '/', component: _Layout2.default },
+	        _react2.default.createElement(_reactRouter.IndexRoute, { component: _HomePage2.default }),
+	        _react2.default.createElement(_reactRouter.Route, { path: 'home', component: _HomePage2.default }),
+	        _react2.default.createElement(_reactRouter.Route, { path: 'about', component: _About2.default }),
+	        _react2.default.createElement(_reactRouter.Redirect, { from: 'chat', to: 'login' }),
+	        _react2.default.createElement(_reactRouter.Route, { path: 'realchat', component: realChat }),
+	        _react2.default.createElement(_reactRouter.Route, { path: 'login', component: Login }),
+	        _react2.default.createElement(_reactRouter.Route, { path: '*', component: _2.default })
+	    )
 	);
 
 /***/ },
@@ -9882,7 +9956,7 @@
 	                _react2.default.createElement(
 	                    'head',
 	                    null,
-	                    _react2.default.createElement('meta', { charset: 'utf-8' }),
+	                    _react2.default.createElement('meta', { charSet: 'utf-8' }),
 	                    _react2.default.createElement('meta', { name: 'viewport', content: 'width=device-width, initial-scale=1' }),
 	                    _react2.default.createElement('link', { rel: 'shortcut icon', href: './favicon.png' }),
 	                    _react2.default.createElement('link', { rel: 'stylesheet', href: './styles.css' }),
@@ -9901,7 +9975,9 @@
 	                        _react2.default.createElement(_Header2.default, null),
 	                        this.props.children
 	                    ),
-	                    _react2.default.createElement('script', { src: '/bundle.js' })
+	                    _react2.default.createElement('script', { src: '/bundle.js' }),
+	                    _react2.default.createElement('script', { src: '/socket.io/socket.io.js' }),
+	                    _react2.default.createElement('script', { src: '/js/socketReact.js' })
 	                )
 	            );
 	        }
@@ -9959,7 +10035,7 @@
 	      ),
 	      _react2.default.createElement(
 	        'a',
-	        { href: 'https://cristianBarreto@bitbucket.org/cristianBarreto/exercise-3.git' },
+	        { href: 'https://bitbucket.org/cristianBarreto/excercise-3', target: '_blank' },
 	        'Bitbucket'
 	      )
 	    )
@@ -10027,14 +10103,14 @@
 	                'The main layout of the application are based on ',
 	                _react2.default.createElement(
 	                    'a',
-	                    { href: 'https://github.com/facebookincubator/create-react-app' },
-	                    'create-react-app'
+	                    { href: 'https://github.com/paypal/react-engine/tree/master/example', target: '_blank' },
+	                    'react-engine example app'
 	                ),
 	                ', and the socket used was ',
 	                _react2.default.createElement(
-	                    'a',
-	                    { href: 'https://github.com/PlatziDev/socket.io-react' },
-	                    'socket.io-react'
+	                    'strong',
+	                    null,
+	                    'socket.io'
 	                ),
 	                ', credits for repo owners.'
 	            ),
@@ -10084,7 +10160,7 @@
 	                                                                                                "Built with \u2665 for ",
 	                                                                                                _react2.default.createElement(
 	                                                                                                                                "a",
-	                                                                                                                                { href: "https://github.com/kamiloC" },
+	                                                                                                                                { href: "https://github.com/kamiloC", target: "__blank" },
 	                                                                                                                                "kamiloC"
 	                                                                                                )
 	                                                                ),
@@ -10131,10 +10207,7 @@
 	    function Chat() {
 	        _classCallCheck(this, Chat);
 
-	        var _this = _possibleConstructorReturn(this, (Chat.__proto__ || Object.getPrototypeOf(Chat)).call(this));
-
-	        _this.state = { usr: 'kamiloC' };
-	        return _this;
+	        return _possibleConstructorReturn(this, (Chat.__proto__ || Object.getPrototypeOf(Chat)).apply(this, arguments));
 	    }
 
 	    _createClass(Chat, [{
@@ -10149,7 +10222,7 @@
 	        value: function handleClick() {
 	            var msg = document.getElementById('msgText');
 	            var chatBox = document.getElementById('chat-box');
-	            var txt = '<p class="msg"><strong>' + this.state.usr + '</strong>: ' + msg.value + '</p>';
+	            var txt = '<p class="msg"><strong>' + this.props.usr + '</strong>: ' + msg.value + '</p>';
 
 	            if (aux <= 50) {
 	                chatBox.innerHTML += txt;
@@ -10180,19 +10253,15 @@
 	                    'p',
 	                    { style: pStyle },
 	                    'Welcome ',
-	                    this.state.usr,
+	                    this.props.usr,
 	                    ', start to chat:'
 	                ),
 	                _react2.default.createElement('div', { id: 'chat-box' }),
 	                _react2.default.createElement('input', { id: 'msgText', type: 'text', className: 'message-box', onKeyDown: this.handleKeyPress.bind(this), placeholder: 'Type your message' }),
 	                _react2.default.createElement(
-	                    _reactRouter.Link,
-	                    { to: 'chat' },
-	                    _react2.default.createElement(
-	                        'button',
-	                        { className: 'let-chat send', onClick: this.handleClick.bind(this) },
-	                        'Send'
-	                    )
+	                    'button',
+	                    { className: 'let-chat send', onClick: this.handleClick.bind(this) },
+	                    'Send'
 	                )
 	            );
 	        }
@@ -10248,7 +10317,7 @@
 	                        { key: image.key },
 	                        _react2.default.createElement(
 	                            "a",
-	                            { href: image.redir },
+	                            { href: image.redir, target: "_blank" },
 	                            _react2.default.createElement("img", { className: "iconContact", src: image.local, alt: "Contact" })
 	                        )
 	                    );
@@ -29720,7 +29789,9 @@
 		"./HomePage": 98,
 		"./HomePage.jsx": 98,
 		"./Layout": 96,
-		"./Layout.jsx": 96
+		"./Layout.jsx": 96,
+		"./Login": 308,
+		"./Login.jsx": 308
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -29785,6 +29856,65 @@
 	    );
 	  }
 	});
+
+/***/ },
+/* 308 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Login = function (_Component) {
+	    _inherits(Login, _Component);
+
+	    function Login() {
+	        _classCallCheck(this, Login);
+
+	        return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).apply(this, arguments));
+	    }
+
+	    _createClass(Login, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "div",
+	                { className: "login" },
+	                _react2.default.createElement(
+	                    "h2",
+	                    null,
+	                    "Insert your user name here:"
+	                ),
+	                _react2.default.createElement("input", { type: "text", id: "username", placeholder: "Type here", className: "message-box" }),
+	                _react2.default.createElement(
+	                    "button",
+	                    { className: "let-chat send" },
+	                    "Go"
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Login;
+	}(_react.Component);
+
+	exports.default = Login;
 
 /***/ }
 /******/ ]);

@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack && node index.js",
-    "dev": "webpack -w & nodemon index.js"
+    "test": "webpack -w & nodemon index.js"
   },
   "author": "kamiloC (github.com/kamiloC)",
   "dependencies": {
@@ -19,8 +19,8 @@
     "react-dom": "^15.1.0",
     "react-engine": "^4.0.0",
     "react-router": "^2.4.0",
-    "serve-favicon": "^2.3.0",
     "socket.io": "^1.7.2",
+    "socket.io-react": "^1.1.2",
     "webpack": "^1.12.9"
   },
   "devDependencies": {

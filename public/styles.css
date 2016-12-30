@@ -170,3 +170,21 @@ header img {
     margin: .5em;
 }
 
+.login {
+    background-color: #123;
+    color: whitesmoke;
+    font-size: 2em;
+    padding: 10% 0 10% 0;
+    text-align: center;
+    width: 100%;
+}
+
+.login h2 {
+    margin-bottom: 6%;
+}
+
+.login input, .login button {
+    background-color: snow;
+    font-weight: bolder;
+    text-align: center;
+}

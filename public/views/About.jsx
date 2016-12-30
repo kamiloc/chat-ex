@@ -3,7 +3,7 @@ import React from 'react';
 class IconContact extends React.Component {
     render(){
         return <ul className="contact">
-        {this.props.images.map((image) => <li key={image.key}><a href={image.redir}><img className="iconContact" src={image.local} alt="Contact"/></a></li>)}
+        {this.props.images.map((image) => <li key={image.key}><a href={image.redir} target="_blank"><img className="iconContact" src={image.local} alt="Contact"/></a></li>)}
         </ul>;
     }
 }

@@ -10,8 +10,8 @@ const HomePage = () => (<div>
                     <a href="https://facebook.github.io/react/"><img src="http://enriquev.github.io/images/react.png" alt="React"/></a>
                     <a href="http://socket.io/"><img src="http://byspel.com/wp-content/uploads/2015/12/socketio2.png" alt="Socket.io"/></a>
                 </div>
-                <h2 className="little-t">The main layout of the application are based on <a href="https://github.com/facebookincubator/create-react-app">create-react-app</a>,
-                and the socket used was <a href="https://github.com/PlatziDev/socket.io-react">socket.io-react</a>, credits for repo owners.</h2>
+                <h2 className="little-t">The main layout of the application are based on <a href="https://github.com/paypal/react-engine/tree/master/example" target="_blank">react-engine example app</a>,
+                and the socket used was <strong>socket.io</strong>, credits for repo owners.</h2>
                 <div> 
                     <Link to="chat"> 
                         <button className="let-chat">Lets chat</button> 

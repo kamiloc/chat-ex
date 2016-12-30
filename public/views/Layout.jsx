@@ -1,4 +1,3 @@
- 
 import React, { Component, PropTypes } from 'react'; 
 import Header from '../common/Header.jsx';
 
@@ -7,7 +6,7 @@ class Layout extends Component {
         return ( 
         <html>
             <head>
-                <meta charset="utf-8" />
+                <meta charSet="utf-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="shortcut icon" href="./favicon.png" />
                 <link rel="stylesheet" href="./styles.css" />
@@ -19,6 +18,8 @@ class Layout extends Component {
                     {this.props.children} 
                 </div>
             <script src='/bundle.js'></script>
+            <script src="/socket.io/socket.io.js"></script>
+            <script src="/js/socketReact.js"></script>
             </body>
       </html>
       );

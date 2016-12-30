@@ -15,16 +15,15 @@
 
 'use strict';
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3000;
 
 import {join} from 'path';
 import express from 'express';
 import ReactEngine from 'react-engine';
 import routes from './public/routes.jsx';
+import io from 'socket.io';
 
 let app = express();
-
-// create the view engine with `react-engine`
 let engine = ReactEngine.server.create({
   routes: routes,
   routesFilePath: join(__dirname, '/public/routes.jsx'),
@@ -58,3 +57,5 @@ app.get('*', function(req, res) {
 const server = app.listen(PORT, function() {
   console.log('Example app listening at http://localhost:%s', PORT);
 });
+
+io(server);

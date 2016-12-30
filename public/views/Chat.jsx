@@ -4,11 +4,7 @@ import { Link } from 'react-router';
 let aux;
 
 class  Chat extends React.Component { 
-    constructor(){
-        super();
-        this.state= {usr: 'kamiloC'};
-    }
-    
+        
      componentDidMount(){
         let h = (window.innerHeight
         || document.documentElement.clientHeight
@@ -20,7 +16,7 @@ class  Chat extends React.Component {
     handleClick(){
         let msg = document.getElementById('msgText');
         let chatBox = document.getElementById('chat-box');
-        let txt = `<p class="msg"><strong>${this.state.usr}</strong>: ${msg.value}</p>`; 
+        let txt = `<p class="msg"><strong>${this.props.usr}</strong>: ${msg.value}</p>`; 
 
         if(aux <= 50) {
             chatBox.innerHTML+= txt;
@@ -45,12 +41,10 @@ class  Chat extends React.Component {
 
         return ( 
             <div className="chat">
-                <p style={pStyle}>Welcome {this.state.usr}, start to chat:</p> 
+                <p style={pStyle}>Welcome {this.props.usr}, start to chat:</p> 
                 <div id="chat-box"></div>
                 <input id="msgText" type="text" className="message-box" onKeyDown={this.handleKeyPress.bind(this)} placeholder="Type your message"></input>
-                <Link to="chat"> 
-                    <button className="let-chat send" onClick={this.handleClick.bind(this)}>Send</button> 
-                </Link>                  
+                <button className="let-chat send" onClick={this.handleClick.bind(this)}>Send</button> 
             </div>
           );
         

@@ -7,7 +7,7 @@ const Header = () => ( <header>
                                  <IndexLink to="/">Home</IndexLink> 
                                  <Link to="chat">Chat</Link>
                                  <Link to="about">About</Link>
-                                 <a href="https://cristianBarreto@bitbucket.org/cristianBarreto/exercise-3.git">Bitbucket</a> 
+                                 <a href="https://bitbucket.org/cristianBarreto/excercise-3" target="_blank">Bitbucket</a> 
                             </nav> 
                         </header> ); 
 export default Header;
