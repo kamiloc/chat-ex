@@ -15,7 +15,7 @@
 
 'use strict';
 
-const PORT = 3000;
+const PORT = process.env.PORT || 4000;
 
 import {join} from 'path';
 import express from 'express';

@@ -5,3 +5,6 @@ node_modules
 
 # logs
 npm-debug.log
+
+#web-pack compile file
+bundle.js
