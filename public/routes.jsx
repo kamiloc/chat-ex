@@ -9,12 +9,12 @@ import Chat from './views/Chat.jsx';
 import About from './views/About.jsx';  
 import Error404 from './views/404.jsx';
 
-let user = {name: '', active: false, getName: () => this.name, setName: (n) => {this.name = n}};
+let user = {name: 'any', active: false, getName: () => name, setName: (n) => {name = n}};
 
 class Login extends Component { 
 
     handleLogin(){
-        user.setName(document.getElementById('username').value);
+        user.setName(document.getElementById("username").value);
         window.location ='/realchat';
     }
 
@@ -23,7 +23,7 @@ class Login extends Component {
             <div className="login">
                 <h2>Insert your user name here:</h2>
                 <input type="text" id="username" placeholder="Type here" className="message-box"/>
-                <button className="let-chat send" onClick={this.handleLogin.bind(this)}>Go</button>
+                <button className="let-chat send" onClick={this.handleLogin.bind()}>Go</button>
             </div>
         );
     }
