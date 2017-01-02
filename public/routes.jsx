@@ -31,7 +31,7 @@ class Login extends Component {
 
 class realChat extends Component {
   render(){
-    return <Chat usr={userName} />;
+    return <Chat usr={user.getName} />;
   }
 }
 
