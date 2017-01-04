@@ -22,6 +22,8 @@ import express from 'express';
 import ReactEngine from 'react-engine';
 import routes from './public/routes.jsx';
 import io from 'socket.io';
+import cookieParser from 'cookie-parser';
+
 
 let app = express();
 let engine = ReactEngine.server.create({
