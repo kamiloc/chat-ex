@@ -13,7 +13,6 @@
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "babel-register": "^6.3.13",
-    "cookie-parser": "^1.4.3",
     "express": "^4.13.3",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",

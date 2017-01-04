@@ -22,7 +22,6 @@ import express from 'express';
 import ReactEngine from 'react-engine';
 import routes from './public/routes.jsx';
 import io from 'socket.io';
-import cookieParser from 'cookie-parser';
 
 
 let app = express();
@@ -49,8 +48,6 @@ app.set('view', ReactEngine.expressView);
 // expose public folder as static assets
 app.use(express.static(join(__dirname, '/public')));
 
-// app.use(favicon(join(__dirname, '/public/favicon.png')));
-
 // add our app routes
 app.get('*', function(req, res) {
   res.render(req.url);
@@ -60,4 +57,8 @@ const server = app.listen(PORT, function() {
   console.log('Example app listening at http://localhost:%s', PORT);
 });
 
-io(server);
+let socket = io(server);
+socket.on('connection',(socket)=>{
+  socket.emit('welcome',{});
+});
+
