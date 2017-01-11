@@ -58,18 +58,13 @@ const server = app.listen(PORT, function() {
 });
 
 let socket = io(server);
-socket.on('connection',(socket)=>{
-  socket.emit('welcome',{});
 
-  socket.on('message',(objMsg,objAux)=>{
-    if(objAux.get() < 50){
-      objMsg.box.innerHTML += objMsg.msg;
-      objAux.set(objAux.get()+1);
-    } else {
-      objMsg.box.innerHTML = objMsg.msg;
-      objAux.set(0);
-    }
+socket.on('connection',()=>{
+  
+  socket.emit('welcome');
+  
+  socket.on('message',(msg)=>{
+    console.log(msg);
   });
 
 });
-

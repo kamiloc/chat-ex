@@ -1,6 +1,8 @@
-var socket = io.connect();
+var socket = io();
+
 socket.on('welcome',function(data){
-  console.log('a user connect');
+  console.log('New user connect');
+  alert('Nuevo usuario, HIJO DE PUTAAA !!');
 });
 
 
@@ -19,7 +21,9 @@ if(window.location.pathname === '/realChat') {
         var msg = document.getElementById('msgText');
         var chatBox = document.getElementById('chat-box');
         var txt = '<p class="msg"><strong>'+getCookie('userName')+'</strong>: '+msg.value+'</p>'; 
-        socket.emit('message',[{box: chatBox, msg: txt},aux]);
+
+        socket.emit('message',msg.value);
+
         chatBox.scrollTop = chatBox.scrollHeight;
         msg.value = '';
         

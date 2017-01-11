@@ -16,7 +16,12 @@ class  Chat extends React.Component {
         || document.body.clientHeight)*0.53
 
         document.getElementById("chat-box").style.height = h+"px";
-        this.setState({usr: getCookie('userName') });
+        
+        if(getCookie('userName') !== "" || getCookie('userName') !== undefined){
+            this.setState({usr: getCookie('userName') });
+        } else {
+            window.location = "/login";
+        }
      }
 
     render() {

@@ -10,6 +10,7 @@ class Layout extends Component {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="shortcut icon" href="./favicon.png" />
                 <link rel="stylesheet" href="./styles.css" />
+                <script src='/js/jquery.js'></script>
                 <script src='/js/index.js'></script>
                 <title>React Chat</title>
             </head>
