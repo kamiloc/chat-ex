@@ -54,17 +54,15 @@ app.get('*', function(req, res) {
 });
 
 const server = app.listen(PORT, function() {
-  console.log('Example app listening at http://localhost:%s', PORT);
+  console.log('The Aplication is now listening at http://localhost:%s', PORT);
 });
 
 let socket = io(server);
 
-socket.on('connection',()=>{
-  
-  socket.emit('welcome');
-  
-  socket.on('message',(msg)=>{
-    console.log(msg);
-  });
+socket.on('connection',(sock)=>{
+  sock.emit('welcome');
 
+  sock.on('message',function(msg){
+    socket.emit('message',msg);
+  });
 });

@@ -188,3 +188,50 @@ header img {
     font-weight: bolder;
     text-align: center;
 }
+
+/*Custom media queryes*/
+
+@media only screen and (max-width: 500px) {
+    header {
+      font-size: .8em;
+      padding-top: 5%;  
+    }
+    
+    header img {
+        margin: 1% 1% 5% 5%;
+        width: 10%;
+    }
+
+    .big-t {
+        font-size: 2em;
+        padding: 2%;
+    }
+
+    .little-t {
+        font-size: 1em;
+    }
+
+    .tech img {
+        width: 40%;
+    }
+
+    .let-chat {
+        font-size: .8em;
+    }
+
+    .login {
+        font-size: 1em;
+        padding: 50% 0 50% 0;
+    }
+
+    .chat {
+        font-size: .8em;
+    }
+    #chat-box {
+        margin-bottom: 2%;
+    }
+
+    .send {
+     font-size: .5em;
+    }
+}
