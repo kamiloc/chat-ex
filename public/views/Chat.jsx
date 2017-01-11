@@ -11,17 +11,18 @@ class  Chat extends React.Component {
     }
 
      componentDidMount(){
+        
+         if(getCookie('userName') != ""){
+            this.setState({usr: getCookie('userName') });
+        } else {
+            window.location = "/login";
+        }
+
         let h = (window.innerHeight
         || document.documentElement.clientHeight
         || document.body.clientHeight)*0.53
 
         document.getElementById("chat-box").style.height = h+"px";
-        
-        if(getCookie('userName') !== "" || getCookie('userName') !== undefined){
-            this.setState({usr: getCookie('userName') });
-        } else {
-            window.location = "/login";
-        }
      }
 
     render() {
@@ -34,6 +35,7 @@ class  Chat extends React.Component {
                 <div id="chat-box"></div>
                 <input id="msgText" type="text" className="message-box" placeholder="Type your message"></input>
                 <button id="send-msg" className="let-chat send">Send</button> 
+                <div id="info"></div>
             </div>
           );
         
