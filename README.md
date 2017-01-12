@@ -23,8 +23,5 @@ $ npm test
 ```
 
 Now you can check the application on:
-```
-#!navigation
+[Home](http://localhost:3000/)
 
-   //localhost:3000
-```
