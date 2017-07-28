@@ -7,7 +7,7 @@ import io from 'socket.io';
 
 
 let app = express();
-let folder = __dirname + '/public';
+let folder = __dirname + '/build';
 
 app.use(express.static(folder));
 
