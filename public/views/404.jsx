@@ -16,8 +16,9 @@
 'use strict';
 
 var React = require('react');
+var createReactClass = require('create-react-class');
 
-module.exports = React.createClass({
+var Error404 = createReactClass({
   displayName: '404',
 
   render: function render() {
@@ -26,3 +27,5 @@ module.exports = React.createClass({
     );
   }
 });
+
+module.exports = Error404;

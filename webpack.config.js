@@ -17,7 +17,7 @@
 
 module.exports = {
 
-  entry: __dirname + '/public/index.js',
+  entry: __dirname + '/public/routes.jsx',
 
   output: {
     path: __dirname + '/public',
@@ -42,6 +42,6 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['', '.js', '.jsx', '.json']
+    extensions: ['.js', '.jsx', '.json']
   }
 };

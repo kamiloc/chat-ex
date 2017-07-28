@@ -1,25 +1,43 @@
 'use strict';
 
-import React, {Component} from 'react';
-import { Router, Route, IndexRoute, Redirect, browserHistory } from 'react-router';
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 
-import Layout from './views/Layout'; 
-import HomePage from './views/HomePage.jsx';
-import Chat from './views/Chat.jsx';
-import About from './views/About.jsx';  
-import Error404 from './views/404.jsx';
-import Login from './views/Login.jsx';
+import HomePage from './views/HomePage';
+import Chat from './views/Chat';
+import About from './views/About';
+import Error404 from './views/404';
+import Login from './views/Login';
 
-module.exports = (
-  <Router history={browserHistory}>
-    <Route path='/' component={Layout}>
-      <IndexRoute component={HomePage} />
-        <Route path="home" component={HomePage}/>  
-        <Route path="about" component={About}/>
-        <Redirect from="chat" to="login" />
-        <Route path="realchat" component={Chat}/>
-        <Route path="login" component={Login} /> 
-        <Route path='*' component={Error404} />
-    </Route>
+const PrivateRoute = ({ component: Component, rest }) => (
+  <Route {...rest} render={props => (
+    getCookie('userName') != '' ? (
+      <Component {...props} />
+    ) : (
+      <Redirect to={{
+        pathname: '/login',
+        state: { from: props.location }
+      }}/>
+    )
+  )}/>
+)
+
+
+const MyRouter = () => (
+
+
+  <Router>
+    <div>
+      <Route exact path="/" component={HomePage} />
+      <Route path="/about" component={About} />
+      <Route path="/login" component={Login} />
+      <PrivateRoute path="/chat" component={Chat} />
+    </div>
   </Router>
 );
+
+
+ReactDOM.render(<MyRouter />, document.getElementById('root'));
+
+export default MyRouter;
