@@ -1,7 +1,8 @@
-# chat-ex
+## React-Chat
 A simple chat application made with React and Socket.io
 
-#Installation:
+# Installation and Use:
+
 Clone the repo:
 
 ```
@@ -18,6 +19,11 @@ $ npm install -dev
 ```
 
 Run the development server with:
+```
+$ npm start
+```
+
+For development mode, webpack watch the files, use:
 ```
 $ npm test
 ```
