@@ -1,7 +1,7 @@
-## React-Chat
+# React-Chat
 A simple chat application made with React and Socket.io
 
-# Installation and Use:
+## Installation and Use:
 
 Clone the repo:
 
