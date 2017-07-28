@@ -29,6 +29,7 @@ const MyRouter = () => (
   <Router>
     <div>
       <Route exact path="/" component={HomePage} />
+      <Route exact path="/home" component={HomePage} />
       <Route path="/about" component={About} />
       <Route path="/login" component={Login} />
       <Route path="/chat">
