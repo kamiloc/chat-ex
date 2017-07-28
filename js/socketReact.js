@@ -22,7 +22,7 @@ socket.on('message',function(m){
 
 
 
-if(window.location.pathname === '/realChat') {
+if(window.location.pathname === '/chat') {
 
     document.getElementById('send-msg').addEventListener('click',handleClick);
     document.getElementById('msgText').addEventListener('keydown',handleKeyPress);
